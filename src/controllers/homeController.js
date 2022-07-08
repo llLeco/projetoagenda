@@ -1,7 +1,7 @@
-const Contato = require('../models/ContatoModel');
+const Tarefa = require('../models/TarefaModel');
 
 exports.index = async(req, res) => {
-  const contatos = await Contato.buscaContatos();
-  res.render('index', { contatos });
+  const tarefas = await Tarefa.buscaTarefas();
+  res.render('index', { tarefas });
 };
 

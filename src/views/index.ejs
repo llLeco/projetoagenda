@@ -6,36 +6,28 @@
     <div class="col-lg-2"></div>
 
     <div class="col-lg-8 my-3">
-      <h1 class="text-center">Agenda</h1>
-      <p class="text-center lead">Seus contatos estão abaixo</p>
+      <h1 class="text-center">To do List</h1>
+      <p class="text-center lead">Suas tarefas estão abaixo</p>
 
       <%- include('includes/messages') %>
 
-      <% if(contatos.length > 0) { %>
+      <% if(tarefas.length > 0) { %>
       <div class="responsive-table">
         <table class="table my-3">
-          <% contatos.forEach(contato => { %>
-            <tr>
-              <td>Nome</td>
-              <td>Sobrenome</td>
-              <td>Telefone</td>
-              <td>Email</td>
-              <td></td>
-              <td></td>
-            </tr>
+          <% tarefas.forEach(tarefa => { %>
+
           <tr>
-            <td><%= contato.nome %></td>
-            <td><%= contato.sobrenome %></td>
-            <td><%= contato.telefone %></td>
-            <td><%= contato.email %></td>
-            <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
-            <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
+            <td><%= tarefa.titulo %></td>
+            <td><%= tarefa.resumo %></td>
+            <td><%= tarefa.paraDia %></td>
+            <td><a href="/tarefa/index/<%= tarefa._id %>">Editar</a></td>
+            <td><a class="text-danger" href="/tarefa/delete/<%= tarefa._id %>">Excluir</a></td>
           </tr>
           <% }); %>
         </table>
       </div>
       <% } else { %>
-        <p class="text-center lead">Não existem contatos na sua agenda.</p>
+        <p class="text-center lead">Não existem tarefas na sua To do List.</p>
       <% } %>
 
     </div>
